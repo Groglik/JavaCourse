@@ -9,8 +9,8 @@ import java.util.Scanner;
 public class Test {
     public static void main(String[] args) throws IOException {
         // читаем картинку из файла image.jpg в объект класса BufferedImage
-        BufferedImage image = ImageIO.read(new File("E:\\Projects\\JavaStudying\\AcademShool\\src\\nature.jpg"));
-        BufferedImage image2 = ImageIO.read(new File("E:\\Projects\\JavaStudying\\AcademShool\\src\\nature - copy.jpg"));
+        BufferedImage image = ImageIO.read(new File("E:\\Projects\\JavaCourse\\src\\nature.jpg"));
+        BufferedImage image2 = ImageIO.read(new File("E:\\Projects\\JavaCourse\\src\\nature - copy.jpg"));
         // получаем растр - объект, внутри которого содержится двумерный массив пикселей
         WritableRaster raster = image.getRaster();
         WritableRaster raster2 = image2.getRaster();

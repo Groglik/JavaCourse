@@ -1,13 +1,16 @@
+package Lesson_13;
+
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.awt.image.WritableRaster;
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 
-public class InvertColors {
+public class BlackAndWhiteConverter {
     public static void main(String[] args) throws IOException {
         // читаем картинку из файла image.jpg в объект класса BufferedImage
-        BufferedImage image = ImageIO.read(new File("E:\\Projects\\JavaStudying\\AcademShool\\src\\nature.jpg"));
+        BufferedImage image = ImageIO.read(new File("E:\\Projects\\JavaCourse\\src\\nature.jpg"));
 
         // получаем растр - объект, внутри которого содержится двумерный массив пикселей
         WritableRaster raster = image.getRaster();
@@ -17,7 +20,9 @@ public class InvertColors {
         int height = raster.getHeight();
 
         final int COLORS_COUNT_IN_RGB = 3;
-        final int MAX_RGB = 255;
+        final double RED_COEFFICIENT = 0.3;
+        final double GREEN_COEFFICIENT = 0.59;
+        final double BLUE_COEFFICIENT = 0.11;
 
         // создаем массив, в котором будет содержаться текущий пиксель
         // это массив из 3 элементов, в нем по очереди лежат числа R, G, B
@@ -31,10 +36,7 @@ public class InvertColors {
                 // получаем текущий пиксель с координатами (x, y) - его цвета кладутся в массив pixel
                 raster.getPixel(x, y, pixel);
 
-                // инвертируем цвет для каждой компоненты, т.е. делаем 255 минус текущее значение
-                for (int i = 0; i < COLORS_COUNT_IN_RGB; ++i) {
-                    pixel[i] = MAX_RGB - pixel[i];
-                }
+                Arrays.fill(pixel, (int) Math.round(RED_COEFFICIENT * pixel[0] + GREEN_COEFFICIENT * pixel[1] + BLUE_COEFFICIENT * pixel[2]));
 
                 // записываем значения цветов для пикселя в картинку
                 raster.setPixel(x, y, pixel);

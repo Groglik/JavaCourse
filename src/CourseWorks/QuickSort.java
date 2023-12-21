@@ -4,6 +4,10 @@ import java.util.Arrays;
 
 public class QuickSort {
     public static void quickSort(int[] array, int leftIndex, int rightIndex) {
+        if (rightIndex - leftIndex == 0 || rightIndex + 1 - leftIndex == 1) {
+            return;
+        }
+
         if (rightIndex + 1 - leftIndex == 2) {
             if (array[rightIndex] < array[leftIndex]) {
                 int temp = array[rightIndex];
@@ -11,10 +15,6 @@ public class QuickSort {
                 array[leftIndex] = temp;
             }
 
-            return;
-        }
-
-        if (array.length == 0 || rightIndex - leftIndex == 1) {
             return;
         }
 

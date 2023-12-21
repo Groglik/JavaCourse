@@ -7,28 +7,39 @@ public class Palindrome {
         int leftIndex = 0;
         int rightIndex = line.length() - 1;
 
-        while (leftIndex < rightIndex) {
-            char letterFromLeft = line.charAt(leftIndex);
-            char letterFromRight = line.charAt(rightIndex);
+        while (leftIndex <= rightIndex) {
+            while (!Character.isLetter(line.charAt(leftIndex))) {
+                if (leftIndex >= rightIndex) {
+                    return false;
+                }
 
-            if (letterFromLeft != letterFromRight) {
+                leftIndex++;
+            }
+
+            while (!Character.isLetter(line.charAt(rightIndex))) {
+                rightIndex--;
+            }
+
+            char symbolFromLeft = line.charAt(leftIndex);
+            char symbolFromRight = line.charAt(rightIndex);
+
+            if (symbolFromLeft != symbolFromRight) {
                 return false;
             }
 
-            do {
-                leftIndex++;
-            } while (!Character.isLetter(line.charAt(leftIndex)));
+            leftIndex++;
+            rightIndex--;
 
-            do {
-                rightIndex--;
-            } while (!Character.isLetter(line.charAt(rightIndex)));
+            if (leftIndex == rightIndex) {
+                return true;
+            }
         }
 
         return true;
     }
 
     public static void main(String[] args) {
-        String line = "Аргентина манит негра";
+        String line = "Аргент00000ина **м   а///нит    негра";
 
         if (isPalindrome(line)) {
             System.out.println("Строка является палиндромом");

@@ -1,17 +1,14 @@
 package Lesson_12;
 
 public class Url {
-    public Url() {
-    }
-
-    public static String getServerName(String urlAddress) {
-        int startIndex = urlAddress.indexOf("/") + 2;
-        int endIndex = urlAddress.indexOf("/", startIndex);
-        return endIndex == -1 ? urlAddress.substring(startIndex) : urlAddress.substring(startIndex, endIndex);
+    public static String getServerName(String url) {
+        int startIndex = url.indexOf("://") + 3;
+        int endIndex = url.indexOf("/", startIndex);
+        return endIndex == -1 ? url.substring(startIndex) : url.substring(startIndex, endIndex);
     }
 
     public static void main(String[] args) {
-        String urlAddress = "https://SomeServerName/abcd/dfdf.htm?dfdf=dfdf";
-        System.out.println("Имя сервера: " + getServerName(urlAddress));
+        String url = "https://SomeServerName/abcd/dfdf.htm?dfdf=dfdf";
+        System.out.println("Имя сервера: " + getServerName(url));
     }
 }

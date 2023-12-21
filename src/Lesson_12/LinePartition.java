@@ -1,21 +1,25 @@
 package Lesson_12;
 
-public class LinePartition {
-    public LinePartition() {
-    }
+import java.util.Arrays;
 
+public class LinePartition {
     public static void main(String[] args) {
         String line = "1, 2, 3, 4, 5";
-        String[] arrayFromLine = line.split(", ");
-        int sum = 0;
-        String[] var4 = arrayFromLine;
-        int var5 = arrayFromLine.length;
 
-        for(int var6 = 0; var6 < var5; ++var6) {
-            String number = var4[var6];
-            sum += Integer.parseInt(number);
+        String[] stringNumbersArray = line.split(", ");
+        int[] integerNumbersArray = new int[stringNumbersArray.length];
+
+        for (int i = 0; i < stringNumbersArray.length; i++) {
+            integerNumbersArray[i] = Integer.parseInt(stringNumbersArray[i]);
         }
 
-        System.out.println("Сумма цифр из строки составляет " + sum);
+        int sum = 0;
+
+        for (int integerNumber : integerNumbersArray) {
+            sum += integerNumber;
+        }
+
+        System.out.println("Массив целых чисел из строки является " + Arrays.toString(integerNumbersArray));
+        System.out.println("Сумма целых чисел массива составляет " + sum);
     }
 }

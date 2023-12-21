@@ -20,6 +20,7 @@ public class BlackAndWhiteConverter {
         int height = raster.getHeight();
 
         final int COLORS_COUNT_IN_RGB = 3;
+
         final double RED_COEFFICIENT = 0.3;
         final double GREEN_COEFFICIENT = 0.59;
         final double BLUE_COEFFICIENT = 0.11;
@@ -36,7 +37,9 @@ public class BlackAndWhiteConverter {
                 // получаем текущий пиксель с координатами (x, y) - его цвета кладутся в массив pixel
                 raster.getPixel(x, y, pixel);
 
-                Arrays.fill(pixel, (int) Math.round(RED_COEFFICIENT * pixel[0] + GREEN_COEFFICIENT * pixel[1] + BLUE_COEFFICIENT * pixel[2]));
+                int pixelBlackAndWhiteConversion = (int) Math.round(RED_COEFFICIENT * pixel[0] + GREEN_COEFFICIENT * pixel[1] + BLUE_COEFFICIENT * pixel[2]);
+
+                Arrays.fill(pixel, pixelBlackAndWhiteConversion);
 
                 // записываем значения цветов для пикселя в картинку
                 raster.setPixel(x, y, pixel);

@@ -4,6 +4,10 @@ import java.util.Scanner;
 
 public class MaxSubstring {
     public static int getMaxSubstringLength(String line) {
+        if (line.isEmpty()) {
+            return 0;
+        }
+
         line = line.toLowerCase();
 
         int maxSubstringLength = 0;

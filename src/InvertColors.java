@@ -1,5 +1,3 @@
-package Lesson_13;
-
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.awt.image.WritableRaster;

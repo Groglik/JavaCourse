@@ -37,9 +37,8 @@ public class BlackAndWhiteConverter {
                 // получаем текущий пиксель с координатами (x, y) - его цвета кладутся в массив pixel
                 raster.getPixel(x, y, pixel);
 
-                int pixelBlackAndWhiteConversion = (int) Math.round(RED_COEFFICIENT * pixel[0] + GREEN_COEFFICIENT * pixel[1] + BLUE_COEFFICIENT * pixel[2]);
-
-                Arrays.fill(pixel, pixelBlackAndWhiteConversion);
+                int greyPixel = (int) Math.round(RED_COEFFICIENT * pixel[0] + GREEN_COEFFICIENT * pixel[1] + BLUE_COEFFICIENT * pixel[2]);
+                Arrays.fill(pixel, greyPixel);
 
                 // записываем значения цветов для пикселя в картинку
                 raster.setPixel(x, y, pixel);

@@ -40,7 +40,7 @@ public class Palindrome {
 
     public static void main(String[] args) {
         String line = "Аргент00000ина **м   а///нит    негра";
-        String line2 = "hf fh";
+        String line2 = "kk";
 
         if (isPalindrome(line2)) {
             System.out.println("Строка является палиндромом");
